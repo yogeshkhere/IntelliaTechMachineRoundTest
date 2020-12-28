@@ -85,7 +85,7 @@
                 <input style="display: none" class="browse-input" #fileInput1 type="file" accept=".png,.svg,.jpg,.jpeg" (change)="onFileCourseFileChanged($event)" />
                 <button *ngIf="!courseImagefilename" (click)="fileInput1.click()" class="mat-stroked-button browse-btn" color="primary">Upload Course Image</button>
                 <div *ngIf="courseImagefilename">
-                         <p> {{courseImagefilename}} <mat-icon (click)="cancelFile('courseImage')">close</mat-icon></p>
+                         <p> {{courseImagefilename}} <mat-icon style="float: right;" (click)="cancelFile('courseImage')">close</mat-icon></p>
                 </div>
             </div>
 
@@ -93,7 +93,7 @@
                 <input style="display: none" class="browse-input" #fileInput2 type="file" accept=".png,.svg,.jpg,.jpeg" (change)="onFileCourseCertificationFileChanged($event)" />
                 <button *ngIf="!courseImageCertificateName" (click)="fileInput2.click()" class="mat-stroked-button browse-btn" color="primary">Upload Course Certificate Image</button>
                 <div *ngIf="courseImageCertificateName">
-                        <p>{{courseImageCertificateName}}  <mat-icon (click)="cancelFile('certificate')">close</mat-icon></p>
+                        <p>{{courseImageCertificateName}}  <mat-icon style="float: right;" (click)="cancelFile('certificate')">close</mat-icon></p>
                 </div>
             </div>
         </div>
