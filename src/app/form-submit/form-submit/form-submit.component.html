@@ -1,0 +1,105 @@
+<div>
+    <h3 class="headerText" > Fill the course Form</h3>
+
+    <form  [formGroup]="courseForm" (ngSubmit)="submitForm()">
+        <div fxLayout="row" fxLayoutGap="5px"  >
+            <mat-form-field fxFlex class="width-45" color="primary" appearance="outline">
+                <mat-label>Course Title</mat-label>
+                <input matInput formControlName="courseTitle" placeholder="Computer Program">
+                <mat-error *ngIf="courseForm.controls['courseTitle'].invalid">
+                    Please Enter Course Name
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex class="width-45" color="primary" appearance="outline">
+                <mat-label>Learning Objective</mat-label>
+                <input matInput formControlName="learningObjective" placeholder="skills in Computer">
+                <mat-error *ngIf="courseForm.controls['learningObjective'].invalid">
+                    Please Enter Learning Objective
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex class="width-45" color="primary" appearance="outline">
+                <mat-label>Course Purpose</mat-label>
+                <input matInput formControlName="coursePurpose" placeholder="Purpose">
+                <mat-error *ngIf="courseForm.controls['coursePurpose'].invalid">
+                    Please Enter Course Purpose
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="5px" >
+            <mat-form-field fxFlex="32" class="width-45" color="primary" appearance="outline">
+                <mat-label>Course Duration</mat-label>
+                <input matInput formControlName="duration" placeholder="30 Days">
+                <mat-error *ngIf="courseForm.controls['duration'].invalid">
+                    Please Enter Course Duration
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="32" class="width-45" color="primary" appearance="outline">
+                <mat-label>Eligibility Criteria</mat-label>
+                <input matInput formControlName="eligibilityCriteria" placeholder="skills in Computer">
+                <mat-error *ngIf="courseForm.controls['eligibilityCriteria'].invalid">
+                    Please Enter Eligibility Criteria
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="32" class="width-45" color="primary" appearance="outline">
+                <mat-label>Course Coverage</mat-label>
+                <input matInput formControlName="courseCoverage" placeholder="Computer Program">
+                <mat-error *ngIf="courseForm.controls['courseCoverage'].invalid">
+                    Please Enter Course Coverage
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" fxLayoutGap="5px" >
+            <mat-form-field fxFlex="32" class="width-45" color="primary" appearance="outline">
+                <mat-label>Narration</mat-label>
+                <input matInput formControlName="narration" placeholder="Computer Program">
+                <mat-error *ngIf="courseForm.controls['narration'].invalid">
+                    Please Enter Narration 
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="32" class="width-45" color="primary" appearance="outline">
+                <mat-label>Certificate Benefits</mat-label>
+                <input matInput formControlName="certificateBenefits" placeholder="Computer Program">
+                <mat-error *ngIf="courseForm.controls['certificateBenefits'].invalid">
+                    Please Enter Certificate Benefits 
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field fxFlex="32" class="width-45" color="primary" appearance="outline">
+                <mat-label>Course Extension</mat-label>
+                <input matInput formControlName="courseExtension" placeholder="skills in Computer">
+                <mat-error *ngIf="courseForm.controls['courseExtension'].invalid">
+                    Please Enter Course Extension
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row" style="text-align: center;" >
+            <div fxFlex="50" >
+                <input style="display: none" class="browse-input" #fileInput1 type="file" accept=".png,.svg,.jpg,.jpeg" (change)="onFileCourseFileChanged($event)" />
+                <button *ngIf="!courseImagefilename" (click)="fileInput1.click()" class="mat-stroked-button browse-btn" color="primary">Upload Course Image</button>
+                <div *ngIf="courseImagefilename">
+                         <p> {{courseImagefilename}} <mat-icon (click)="cancelFile('courseImage')">close</mat-icon></p>
+                </div>
+            </div>
+
+            <div fxFlex="50" >
+                <input style="display: none" class="browse-input" #fileInput2 type="file" accept=".png,.svg,.jpg,.jpeg" (change)="onFileCourseCertificationFileChanged($event)" />
+                <button *ngIf="!courseImageCertificateName" (click)="fileInput2.click()" class="mat-stroked-button browse-btn" color="primary">Upload Course Certificate Image</button>
+                <div *ngIf="courseImageCertificateName">
+                        <p>{{courseImageCertificateName}}  <mat-icon (click)="cancelFile('certificate')">close</mat-icon></p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="buttonSubmit" mat-raised-button color="primary" type="submit" >Submit Form</button>
+        </div>
+    </form>
+
+</div>

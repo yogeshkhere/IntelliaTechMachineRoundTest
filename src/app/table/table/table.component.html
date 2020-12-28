@@ -1,0 +1,46 @@
+<div class="my-data-content">
+        <div fxLayout="row" class="header-list">
+            <div fxFlex>
+                <h3>Polls Table</h3>
+            </div>
+            <div fxFlex="75" class="filter-field">
+                <mat-form-field class="width-100">
+                    <input matInput #dataTableSearchInput  placeholder="Filter">
+                </mat-form-field>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex class="mat-elevation-z8 mlr-15">
+                <table mat-table [dataSource]="dataSource">
+
+                    <ng-container matColumnDef="pollId">
+                    <th mat-header-cell *matHeaderCellDef> Poll Id </th>
+                    <td mat-cell *matCellDef="let row">  {{row.pollId}}</td>
+                    </ng-container>
+
+                     <ng-container matColumnDef="pollName">
+                        <th mat-header-cell *matHeaderCellDef> Poll Name </th>
+                        <td mat-cell *matCellDef="let row"> {{row.pollName}} </td>
+                        </ng-container>
+
+                    <ng-container matColumnDef="pollDescription">
+                        <th mat-header-cell *matHeaderCellDef> Description </th>
+                        <td mat-cell *matCellDef="let row"> {{row.pollDescription}} </td>
+                        </ng-container>
+
+                    <ng-container matColumnDef="createdDate">
+                        <th mat-header-cell *matHeaderCellDef> Created Date </th>
+                        <td mat-cell *matCellDef="let row"> {{row.createdDate | date}} </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>>
+                </table>
+
+                <mat-paginator [length]="length"
+                [pageSize]="pageSize"
+                (page)="pageEvent = $event">
+  </mat-paginator>
+            </div>
+        </div>
+</div>

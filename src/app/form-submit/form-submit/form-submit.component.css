@@ -1,0 +1,17 @@
+.width-45 {
+    width:32.5%;
+    margin-left: 8px;
+  }
+  .headerText{
+    text-align: center;
+  }
+
+  .card {
+    max-width: 200px;
+  }
+  .buttonSubmit{
+    float: left;
+    margin-left: 600px;
+    margin-top: 100px;
+  }
+  
